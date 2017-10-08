@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "NavigationList";
+    Layout = null;
+}
+<link href="~/css/bootstrap.min.css" rel="stylesheet">
+<link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+<link href="~/css/animate.css" rel="stylesheet">
+<link href="~/css/style.css" rel="stylesheet">
+
+<ul class="nav" id="side-menu">
+    <li class="nav-header" style="padding-left:50px">
+        <div class="dropdown profile-element">
+            <span>
+                <img alt="image" class="img-circle" src="~/Image/Reading.jpg" width="48" height="48" />
+            </span>
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <span class="clear">
+                    <span class="block m-t-xs">
+                    </span> <span class="text-muted text-xs block">@(string.IsNullOrWhiteSpace(User.Identity.Name) ? "管理员" : User.Identity.Name)</span>
+                </span>
+            </a>
+
+        </div>
+        <div class="logo-element">
+            Share
+        </div>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label" data-i18n="nav.forms" onclick="location.href = '/HomePageConfigV2/Index'">账户中心</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse ">          
+            <li><a href="#">完善个人信息</a></li>
+            <li><a href="#">收货地址管理</a></li>
+            <li><a href="#">账户安全</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label" data-i18n="nav.forms" onclick="location.href = '/HomePageConfigV2/Index'">图书管理</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse ">
+            <li><a href="#">我的图书馆</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label" data-i18n="nav.forms" onclick="location.href = '/HomePageConfigV2/Index'">订单中心</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse ">
+            <li><a href="#">我的订单</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#"><i class="fa fa-edit"></i> <span class="nav-label" data-i18n="nav.forms" onclick="location.href = '/HomePageConfigV2/Index'">会员中心</span><span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level collapse ">
+            <li><a href="#">享阅会员</a></li>
+        </ul>
+    </li>
+</ul>
+<script src="~/js/jquery-2.1.1.js"></script>
+<script src="~/js/bootstrap.min.js"></script>
+<script src="~/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="~/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Peity -->
+<script src="~/js/plugins/peity/jquery.peity.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="~/js/inspinia.js"></script>
+<script src="~/js/plugins/pace/pace.min.js"></script>
+
+<!-- iCheck -->
+<script src="~/js/plugins/iCheck/icheck.min.js"></script>
+
+<!-- Peity -->
+<script src="~/js/demo/peity-demo.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+
+

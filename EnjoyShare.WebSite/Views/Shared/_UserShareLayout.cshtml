@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Personalcenter</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/css/animate.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
+</head>
+<body class="fixed-sidebar">
+    <div id="wrapper" class="">
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                @Html.Action("NavigationList", "UserAccount")
+            </div>
+        </nav>
+    </div>
+<div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
+    <!-- Top Navbar -->
+    <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            </div>
+
+        </nav>
+    </div>
+    <!-- Main view  -->
+    <div class="container-fluid">
+        @RenderBody()
+
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="pull-right">
+        </div>
+        <div>
+            <strong>Copyright</strong> Enjoyshare.xin &copy; @DateTime.Now.Year
+        </div>
+    </div>
+
+</div>
+    @RenderSection("scripts", required: false)
+    @*@section Scripts {
+        @RenderSection("scripts", required: false)
+    }*@
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+﻿<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity>
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration"/>
+    <containers>
+      <container name="Container">
+        <extension type="Interception"/>
+        <register type="System.Data.Entity.DbContext, EntityFramework" mapTo="Ef.Models.Context.Enjoyshare, Ef.Model"/>
+        <register type="Bussiness.Interface.IBaseService,Bussiness.Interface" mapTo="Bussiness.Service.BaseService, Bussiness.Service"/>
+      </container>
+    </containers>
+  </unity>
+</configuration>
