@@ -41,13 +41,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IBaseService.cs" />
+    <Compile Include="IUserAccountService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ef.Models\Ef.Models.csproj">
+      <Project>{dfe04bba-6357-4a68-9861-8e31a44a0a82}</Project>
+      <Name>Ef.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EnjoyShare.Framework\EnjoyShare.Framework.csproj">
       <Project>{77e43716-7b77-4bad-9799-e446275e242c}</Project>
       <Name>EnjoyShare.Framework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -37,8 +37,8 @@ namespace EnjoyShare.WebSite.Untility
                 return LoginResult.WrongVerify;
             }
 
-            IBaseService service = DIFactory.GetContainer().Resolve<IBaseService>();
-            UserAccount user=new UserAccount() ;//= service.UserLogin(name);
+            IUserAccountService service = DIFactory.GetContainer().Resolve<IUserAccountService>();
+            UserAccount user = service.UserLogin(name);
             if (user == null)
             {
                 return LoginResult.NoUser;
@@ -47,7 +47,7 @@ namespace EnjoyShare.WebSite.Untility
             {
                 return LoginResult.WrongPwd;
             }
-            else if (user.Status == CommonEnum.UserState.Frozen.ToString())
+            else if (user.State == (int)CommonEnum.UserState.Frozen)
             {
                 return LoginResult.Frozen;
             }
@@ -82,9 +82,9 @@ namespace EnjoyShare.WebSite.Untility
                 #region Cookie
                 CurrentUser currentUser = new CurrentUser()
                 {
-                    Id = user.PKID,
-                    //Name = user.,
-                    //Account = user.Account,
+                    Id = user.Id,
+                    Name = user.Name,
+                    Account = user.Account,
                     Email = user.Email,
                     Password = user.Password,
                     LoginTime = DateTime.Now
@@ -109,7 +109,7 @@ namespace EnjoyShare.WebSite.Untility
 
 
                 logger.Debug(string.Format("用户id={0} Name={1}登录系统", currentUser.Id, currentUser.Name));
-               // service.LastLogin(user);
+                service.LastLogin(user);
                 return LoginResult.Success;
             }
         }
@@ -173,6 +173,36 @@ namespace EnjoyShare.WebSite.Untility
             context.Session.RemoveAll();//
             context.Session.Abandon();//就是把当前Session对象删除了，下一次就是新的Session了   
             #endregion Session
+        }
+
+        public static string UserRegister(string name , string pwd )
+        {
+            IUserAccountService service = DIFactory.GetContainer().Resolve<IUserAccountService>();
+            UserAccount user = service.UserLogin(name);
+            if (user != null)
+            {
+                return "该账号已经被注册";
+            }
+            else
+            {
+                var model = new UserAccount()
+                {
+                    Name = name,
+                    Password = MD5Encrypt.Encrypt(pwd),
+                    Account = name,
+                    CreatorId = 1,
+                    CreateTime =DateTime.Now,
+                    UserType=1,
+                    State = 1,
+                };
+                var result = service.InsertUser(model);
+                if (result != null)
+                {
+                    return "成功";
+                }
+                return "失败";
+            }
+            
         }
     }
 }

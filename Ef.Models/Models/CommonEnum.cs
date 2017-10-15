@@ -5,15 +5,15 @@ namespace Ef.Models.Models
     {
         public enum UserState
         {
-            Normal = 0,
-            Frozen = 1,
-            Deleted = 2
+            Normal = 1,
+            Frozen = 2,
+            Deleted = 3
         }
 
         public enum UserType
         {
-            User = 1,
-            Admin = 2,
+            Admin = 1,
+            User = 2,
             SuperAdmin = 4
         }
 

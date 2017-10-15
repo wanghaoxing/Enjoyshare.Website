@@ -9,57 +9,42 @@ namespace Ef.Models
     [Table("UserAccount")]
     public partial class UserAccount
     {
-        [Key]
-        [Column(Order = 0)]
-        public int PKID { get; set; }
-
-        [Key]
-        [Column(Order = 1)]
-        public Guid UserId { get; set; }
-
-        [StringLength(20)]
-        public string UserTag { get; set; }
-
-        [StringLength(20)]
-        public string MobileNumber { get; set; }
+        public int Id { get; set; }
 
         [StringLength(50)]
-        public string ThirdPartId { get; set; }
+        public string Name { get; set; }
 
-        [StringLength(20)]
-        public string Category { get; set; }
-
-        [Key]
-        [Column(Order = 2)]
-        public bool IsMobileVerified { get; set; }
-
+        [Required]
         [StringLength(100)]
-        public string Email { get; set; }
+        public string Account { get; set; }
 
+        [Required]
         [StringLength(100)]
         public string Password { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        [StringLength(20)]
-        public string Status { get; set; }
+        [StringLength(200)]
+        public string Email { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
-        public DateTime CreatedTime { get; set; }
+        [StringLength(30)]
+        public string Mobile { get; set; }
 
-        [Key]
-        [Column(Order = 5)]
-        public DateTime UpdatedTime { get; set; }
+        public int? CompanyId { get; set; }
 
-        [Key]
-        [Column(Order = 6, TypeName = "timestamp")]
-        [MaxLength(8)]
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
+        [StringLength(500)]
+        public string CompanyName { get; set; }
 
-        [Key]
-        [Column(Order = 7)]
-        public bool IsActive { get; set; }
+        public int State { get; set; }
+
+        public int UserType { get; set; }
+
+        public DateTime? LastLoginTime { get; set; }
+
+        public DateTime CreateTime { get; set; }
+
+        public int CreatorId { get; set; }
+
+        public int? LastModifierId { get; set; }
+
+        public DateTime? LastModifyTime { get; set; }
     }
 }

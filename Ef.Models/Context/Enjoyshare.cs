@@ -14,8 +14,8 @@ namespace Ef.Models
 
         public virtual DbSet<Address> Address { get; set; }
         public virtual DbSet<BookInfo> BookInfo { get; set; }
-        public virtual DbSet<Region> Region { get; set; }
         public virtual DbSet<UserAccount> UserAccount { get; set; }
+        public virtual DbSet<Region> Region { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,8 +28,20 @@ namespace Ef.Models
                 .HasPrecision(18, 0);
 
             modelBuilder.Entity<UserAccount>()
-                .Property(e => e.RowVersion)
-                .IsFixedLength();
+                .Property(e => e.Account)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserAccount>()
+                .Property(e => e.Password)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserAccount>()
+                .Property(e => e.Email)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<UserAccount>()
+                .Property(e => e.Mobile)
+                .IsUnicode(false);
         }
     }
 }

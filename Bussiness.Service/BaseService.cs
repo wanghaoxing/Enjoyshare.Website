@@ -9,12 +9,12 @@ using EnjoyShare.Framework.Models;
 
 namespace Bussiness.Service
 {
-    public abstract class BaseService : IBaseService
+    public  class BaseService : IBaseService
     {
         #region Identity
-        protected DbContext Context { get; private set; }
+        public DbContext Context { get; private set; }
 
-        protected BaseService(DbContext context)
+        public BaseService(DbContext context)
         {
             this.Context = context;
         }
@@ -171,7 +171,16 @@ namespace Bussiness.Service
 
         public void Commit()
         {
-            this.Context.SaveChanges();
+            try
+            {
+                this.Context.SaveChanges();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
         }
 
         public IQueryable<T> ExcuteQuery<T>(string sql, SqlParameter[] parameters) where T : class

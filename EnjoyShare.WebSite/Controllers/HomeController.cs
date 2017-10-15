@@ -12,12 +12,12 @@ namespace EnjoyShare.WebSite.Controllers
     {
         #region Identity
         //private ISearch iCommoditySearch = null;
-        private IBaseService _iBaseService = null;
+        private IUserAccountService _iBaseService = null;
         //private ICategoryService iCategoryService = null;
         private int pageSize = 10;
         private Logger logger = Logger.CreateLogger(typeof(HomeController));
 
-        public HomeController(IBaseService baseService)
+        public HomeController(IUserAccountService baseService)
         {
             this._iBaseService = baseService;
         }

@@ -155,6 +155,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserAccountController.cs" />
+    <Compile Include="Filter\AuthorityFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -163,6 +164,12 @@
     <Compile Include="Untility\UserManage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CfgFiles\log4net.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CfgFiles\Unity.Config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\animate.css" />
@@ -401,6 +408,8 @@
     <Content Include="Views\UserAccount\NavigationList.cshtml" />
     <Content Include="Views\Shared\_UserShareLayout.cshtml" />
     <Content Include="Views\UserAccount\Address.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\UserAccount\ForgotpPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -424,6 +433,10 @@
     <ProjectReference Include="..\Bussiness.Interface\Bussiness.Interface.csproj">
       <Project>{01771d6a-f734-4427-91b9-569ab2184281}</Project>
       <Name>Bussiness.Interface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bussiness.Service\Bussiness.Service.csproj">
+      <Project>{850cffd9-50bb-4e6f-9239-4bda830b8df4}</Project>
+      <Name>Bussiness.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ef.Models\Ef.Models.csproj">
       <Project>{dfe04bba-6357-4a68-9861-8e31a44a0a82}</Project>

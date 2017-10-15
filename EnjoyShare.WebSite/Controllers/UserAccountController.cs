@@ -51,9 +51,19 @@ namespace EnjoyShare.WebSite.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Register(string name, string password, string email)
+        public ActionResult Register(string name, string password,string verify)
         {
-            return View();
+            var result = UserManage.UserRegister(name, password);
+            if (result == "成功") 
+            {
+                return RedirectToAction("Login", "UserAccount");
+            }
+            else
+            {
+                ModelState.AddModelError("failed", result);
+                return View();
+            }
+
         }
 
         /// <summary>
@@ -68,7 +78,16 @@ namespace EnjoyShare.WebSite.Controllers
             bitmap.Save(base.Response.OutputStream, ImageFormat.Gif);
             base.Response.ContentType = "image/gif";
         }
-
+        /// <summary>
+        /// 退出
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult Logout()
+        {
+            this.HttpContext.UserLogout();
+            return RedirectToAction("Index", "Home"); ;
+        }
 
         public ActionResult Personalcenter()
         {

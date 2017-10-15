@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity>
+    <!--定义类型别名-->
+    <aliases>
+      <add alias="EntityFramework" type="System.Data.Entity.DbContext, EntityFramework" />
+      <add alias="Ef" type="Ef.Models.Enjoyshare, Ef.Models" />
+      <add alias="BussinessInterface" type="Bussiness.Interface.IBaseService, Bussiness.Interface" />
+      <add alias="BussinessService" type="Bussiness.Service.BaseService, Bussiness.Service" />
+    </aliases>
+    <containers>
+      <container name="Container">
+        <register type="EntityFramework" mapTo="Ef"/>
+        <register type="BussinessInterface" mapTo="BussinessService"/>
+      </container>
+    </containers>
+
+    <container name="testContainer">
+      <register type="Interface.IPhone,Interface" mapTo="Service.ApplePhone, Service"/>
+      <register type="Interface.IMicrophone, Interface" mapTo="Service.Microphone, Service"/>
+      <register type="Interface.IHeadphone, Interface" mapTo="Service.Headphone, Service"/>
+      <register type="Interface.IPower, Interface" mapTo="Service.Power, Service"/>
+    </container>
+  </unity>
+</configuration>
