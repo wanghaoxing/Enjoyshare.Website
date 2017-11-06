@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/css/bootstrap.min.css")
+    @Styles.Render("~/font-awesome/css/font-awesome.css")
+    @Styles.Render("~/css/animate.css")
+    @Styles.Render("~/css/style.css")
+    <style>
+        * {
+            font-family: 微软雅黑;
+            margin: 0px;
+            padding: 0px;
+            font-size: 14px;
+        }
+
+        body {
+            background: #F9F9F9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .top {
+            height: 26px;
+            background: #F2F2F2;
+        }
+
+        .main {
+            width: 1200px;
+            margin: 0 auto;
+            line-height: 26px;
+            color: #999;
+        }
+
+            .main .left {
+                float: left;
+            }
+
+            .main .right {
+                float: right;
+            }
+
+        .right .ceo {
+            color: #c00;
+        }
+
+        .right .shouji {
+            background: #c00;
+            color: #fff;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        .right .cart {
+            background: url('public-24.png') no-repeat -18px 4px;
+            padding-left: 15px;
+        }
+
+        .right .shouji .pre {
+            background: url('public-24.png') no-repeat -62px 4px;
+            padding-left: 15px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .right .kefu {
+            background: url('public-24.png') no-repeat -90px -260px;
+            padding-left: 15px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .main .left span, .main .right a {
+            margin-right: 5px;
+        }
+
+        .main .right span, .main .right a {
+            margin-left: 5px;
+        }
+
+        .cartnum {
+            color: #c00;
+        }
+
+        .main .city i {
+            width: 13px;
+            display: inline-block;
+            height: 14px;
+            vertical-align: -2px;
+            background: url('icon_new.png') no-repeat -70px -270px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="main">
+            <div class="left">
+                <a href="https://www.tuhu.cn/City.aspx" class="city"><i></i>上海</a>
+                <span>
+                    欢迎来到享阅网！
+                </span>
+                @*<a href="">请登录</a>
+                <a href="">免费注册</a>*@
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div class="right">
+                <a href="">用户中心</a>
+                <a href="" class="ceo">CEO邮箱</a>
+                <a href=""><i class="cart"></i>购物车<span class="cartnum">0</span>件</a>
+                <a href="" class="ceo">社区</a>
+                <a href="" class="shouji"><i class="pre"></i>手机逛一逛</a>
+                <a href="">体验店加盟</a>
+                <a href="">网站导航</a>
+                <a href=""><i class="kefu"></i>客户服务</a>
+                <span>客服热线:</span>
+                <span class="ceo">110-110-1100</span>
+
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

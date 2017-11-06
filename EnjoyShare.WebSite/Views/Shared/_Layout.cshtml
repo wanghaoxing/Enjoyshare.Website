@@ -1,36 +1,186 @@
-﻿<!DOCTYPE html>
+﻿@using EnjoyShare.WebSite.Models
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
-    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/Content/css")*@
     @Styles.Render("~/css/bootstrap.min.css")
     @Styles.Render("~/font-awesome/css/font-awesome.css")
-    @Styles.Render("~/css/animate.css")
-    @Styles.Render("~/css/style.css")
+    @*@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")*@
+    @*@Styles.Render("~/css/animate.css")
+    @Styles.Render("~/css/style.css")*@
+    <style>
+        * {
+            font-family: 微软雅黑;
+            margin: 0px;
+            padding: 0px;
+            font-size: 14px;
+        }
+
+        body {
+            background: #F9F9F9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        .top {
+            height: 26px;
+            background: #F2F2F2;
+        }
+
+        .main {
+            width: 1200px;
+            margin: 0 auto;
+            line-height: 26px;
+            color: #999;
+        }
+
+            .main .left {
+                float: left;
+            }
+
+            .main .right {
+                float: right;
+            }
+
+        .right .ceo {
+            color: #c00;
+        }
+
+        .right .shouji {
+            background: #c00;
+            color: #fff;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        .right .cart {
+            background: url('/Image/public-24.png') no-repeat -18px 4px;
+            padding-left: 15px;
+        }
+
+        .right .shouji .pre {
+            background: url('/Image/public-24.png') no-repeat -62px 4px;
+            padding-left: 15px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .right .kefu {
+            background: url('/Image/public-24.png') no-repeat -90px -260px;
+            padding-left: 15px;
+            width: 15px;
+            height: 15px;
+        }
+
+        .main .left span, .main .right a {
+            margin-right: 5px;
+        }
+
+        .main .right span, .main .right a {
+            margin-left: 5px;
+        }
+
+        .cartnum {
+            color: #c00;
+        }
+
+        .main .city i {
+            width: 13px;
+            display: inline-block;
+            height: 14px;
+            vertical-align: -2px;
+            background: url('/Image/icon_new.png') no-repeat -70px -270px;
+        }
+    </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+<div class="top">
+    <div class="main">
+        <div class="left">
+            <a href="https://www.tuhu.cn/City.aspx" class="city"><i></i>上海</a>
+            @if (Context.Session["CurrentUser"] != null && Context.Session["CurrentUser"] is CurrentUser)
+            {
+
+                @Html.ActionLink("你好 " + ((CurrentUser)Context.Session["CurrentUser"]).Name + "!", "Index", "Home", routeValues: null, htmlAttributes: new { title = ((CurrentUser)Context.Session["CurrentUser"]).Name })
+
+                <a href="javascript:document.getElementById('logoutForm').submit()">注销</a>
+
+            }
+            else
+            {
+                <span>
+                    欢迎来到享阅网！
+                </span>
+                <a href="/UserAccount/Login">请登录</a>
+                <a href="/UserAccount/Register">免费注册</a>
+                    @*@Html.ActionLink("请登录", "Login", "UserAccount", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                    @Html.ActionLink("免费注册", "Login", "UserAccount", routeValues: null, htmlAttributes: new { id = "loginLink" })*@
+            }
+            @*<span>
+                    欢迎来到享阅网！
+                </span>
+                @*<a href="">请登录</a>
+                    <a href="">免费注册</a>*@
+            @*@Html.Partial("_LoginPartial")*@
+        </div>
+        <div class="right">
+            <a href="">用户中心</a>
+            <a href="" class="ceo">CEO邮箱</a>
+            <a href=""><i class="cart"></i>购物车<span class="cartnum">0</span>件</a>
+            @*<a href="" class="ceo">社区</a>*@
+            <a href="" class="shouji"><i class="pre"></i>手机逛一逛</a>
+            @*<a href="">体验店加盟</a>*@
+            <a href="">网站导航</a>
+            <a href=""><i class="kefu"></i>客户服务</a>
+            <span>客服热线:</span>
+            <span class="ceo">136-7171-4524</span>
+
+        </div>
+    </div>
+</div>
+    <nav class="navbar navbar-default  navbar-inverse" style="width: 1200px;margin-left: 80px">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("应用程序名称", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a class="navbar-brand" href="#">享阅网LOGO</a>
             </div>
-            <div class="navbar-collapse collapse">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li class="active"><a href="https://www.tuhu.cn/City.aspx">选择城市 <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">筛选 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">借书</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">买书</a></li>
+                        </ul>
+                    </li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-                @*@Html.Action(regi)*@
+                <form class="navbar-form navbar-center">
+                    <div class="form-group">
+                        <input type="text" style="width: 500px" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                </form>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />

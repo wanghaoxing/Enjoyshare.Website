@@ -269,7 +269,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\banner2.jpg" />
+    <Content Include="Image\banner1.jpg" />
     <Content Include="Image\bg.jpg" />
+    <Content Include="Image\icon_new.png" />
+    <Content Include="Image\public-24.png" />
     <Content Include="Image\Reading.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -410,6 +414,7 @@
     <Content Include="Views\UserAccount\Address.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\UserAccount\ForgotpPassword.cshtml" />
+    <Content Include="Views\Shared\_LayoutTopBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

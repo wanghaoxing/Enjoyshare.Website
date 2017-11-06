@@ -1,8 +1,64 @@
-﻿
-@*<body style="background-image: url(~/Image/bg.jpg)">*@
-    <div style="text-align:center;height:600px">
-        <input type='text' style='font-size:20px' name="" id="inputID" />
-        <input type="button" value="搜索" style='font-size:20px' id="subID">
-        @*<a href="http://www.baidu.com" style='font-size:20px'>跳转至...</a>*@
+﻿<div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- 旋转木马项目 -->
+    <div class="carousel-inner">
+        <div class="active item" style="height: 100px"><img src="/Image/banner1.jpg" alt="First slide"></div>
+        <div class="item" style="height: 100px"><img src="/Image/banner2.jpg" alt="First slide"></div>
+        <div class="item" style="height: 100px"><img src="/Image/Reading.jpg" alt="First slide"></div>
     </div>
+    <!-- 旋转木马导航 -->
+    <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+    <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+<ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#home" data-toggle="tab">文艺</a></li>
+    <li><a href="#profile" data-toggle="tab">童书</a></li>
+    <li><a href="#messages" data-toggle="tab">教育</a></li>
+    <li><a href="#settings" data-toggle="tab">人为科学</a></li>
+    <li ><a href="#home2" data-toggle="tab">经管</a></li>
+    <li><a href="#profile2" data-toggle="tab">励志</a></li>
+    <li><a href="#messages2" data-toggle="tab">科技</a></li>
+    <li><a href="#settings2" data-toggle="tab">计算机</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="home">
+        <div style="background-color: aqua; width: 1135px;height: 1000px"></div>
+    </div>
+    <div class="tab-pane" id="profile">
+        <div style="background-color:blue; width: 1135px;height: 1000px"></div>
+    </div>
+    <div class="tab-pane" id="messages">
+        <div style="background-color:bisque; width: 1135px;height: 1000px"></div>
+    </div>
+    <div class="tab-pane" id="settings">
+        
+        <div style="background-color:brown; width: 1135px; height: 1000px"></div>
+    </div>
+    <div class="tab-pane" id="home2">
+
+        <div style="background-color:brown; width: 1135px; height: 1000px"></div>
+    </div>
+    <div class="tab-pane" id="profile2">
+
+        <div style="background-color:brown; width: 1135px; height: 1000px"></div>
+    </div>
+    <div class="tab-pane" id="messages2">
+
+        <div style="background-color:brown; width: 1135px; height: 1000px"></div>
+    </div>
+    <div class="tab-pane" id="settings2">
+
+        <div style="background-color:darkmagenta; width: 1135px; height: 1000px"></div>
+    </div>
+</div>
+<script>
+  $(function () {
+    $('#myTab a:last').tab('show');
+  })
+</script>
 

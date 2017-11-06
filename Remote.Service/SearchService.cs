@@ -11,8 +11,20 @@ namespace Remote.Service
         public PageResult<BookModel> QueryCommodityPage(int pageIndex, int pageSize, string keyword, List<int> regionId, string priceFilter,
             string priceOrderBy)
         {
-            //todo 调用搜索服务
-            throw new NotImplementedException();
+            string result = null;
+            try
+            {
+                using (var client = new RemoteSearchService.SearcherClient())
+                {
+                     result = client.QueryProduct(keyword);
+                    return Newtonsoft.Json.JsonConvert.DeserializeObject<PageResult<BookModel>>(result);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                return new PageResult<BookModel>();
+            }
         }
     }
 }

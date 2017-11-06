@@ -11,50 +11,157 @@
     <meta name="viewport" content="width=device-width" />
     <title>Personalcenter</title>
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
+    @*<link href="~/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="~/css/animate.css" rel="stylesheet">
-    <link href="~/css/style.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">*@
+    <style>
+        .navbar-brand {
+            color: #e7eaec !important;
+            font-weight: bold;
+        }
+
+        body {
+            padding-top: 70px;
+        }
+        .nav-header {
+            /*padding: 33px 25px;*/
+            background: url("patterns/header-profile.png") no-repeat;
+        }
+        .footer {
+            background: none repeat scroll 0 0 white;
+            border-top: 1px solid #e7eaec;
+            bottom: 0;
+            left: 0;
+            padding: 10px 20px;
+            position: absolute;
+            right: 0;
+        }
+        .logo-element {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            display: block;
+            /*padding: 18px 0;*/
+        }
+        .img-circle {
+            border-radius: 50%;
+        }
+    </style> 
 </head>
-<body class="fixed-sidebar">
-    <div id="wrapper" class="">
-        <nav class="navbar-default navbar-static-side" role="navigation">
-            <div class="sidebar-collapse">
-                @Html.Action("NavigationList", "UserAccount")
+<body>
+    <div class="container">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">个人中心</a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">首页</a></li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div><!-- /.container-fluid -->
+            </nav>
+            <div class="row">
+                <div class="col-md-2">
+                    <ul class="nav" id="side-menu" >
+                        <li class="nav-header" style="padding-left:50px;">
+                            <div class="dropdown profile-element">
+                                <span>
+                                    <img alt="image" class="img-circle" src="~/Image/Reading.jpg" width="48" height="48" />
+                                </span>
+                            </div>
+                            <div class="logo-element">
+                                Share
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">
+                                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        账户中心
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel">
+                                    <div class="list-group">
+                                        <a href="" class="list-group-item">完善个人信息</a>
+                                        <a href="" class="list-group-item">收货地址管理</a>
+                                        <a href="" class="list-group-item">账户安全</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        我的图书馆
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    我的图书馆
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        我的订单
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    我的订单
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        享阅会员
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    享阅会员
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    @RenderBody()
+                </div>
             </div>
-        </nav>
-    </div>
-<div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
-    <!-- Top Navbar -->
-    <div class="row border-bottom">
-        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            <!-- Footer -->
+            <div class="footer">
+                <div class="pull-right">
+                </div>
+                <div>
+                    <strong>Copyright</strong> Enjoyshare.xin &copy; @DateTime.Now.Year
+                </div>
             </div>
-
-        </nav>
-    </div>
-    @Html.Partial("_LoginPartial")
-    <!-- Main view  -->
-    <div class="container-fluid">
-        @RenderBody()
-
-    </div>
-
-
-    <!-- Footer -->
-    <div class="footer">
-        <div class="pull-right">
-        </div>
-        <div>
-            <strong>Copyright</strong> Enjoyshare.xin &copy; @DateTime.Now.Year
-        </div>
-    </div>
-
 </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    @*@section Scripts {
-        @RenderSection("scripts", required: false)
-    }*@
-
 </body>
 </html>
