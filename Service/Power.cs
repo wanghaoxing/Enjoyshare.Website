@@ -10,5 +10,6 @@ namespace Service
     public class Power: IPower
     {
 		
+		
     }
 }
